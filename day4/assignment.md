@@ -4,7 +4,7 @@ Halo ! Untuk tugas kali ini, Anda diminta untuk membuat sebuah API dengan bebera
 
 ## Persyaratan:
 
-1. Buatlah sebuah API dengan menggunakan Express.js.
+1. Buatlah RESTFULL API dengan menggunakan Express.js.
 2. Terapkan konsep MVC dalam pembuatan API Anda.
 3. Pastikan Anda membuat API yang memiliki metode **GET**, **POST**, **PUT**, dan **DELETE**.
 4. Saat membuat API, gunakanlah query parameter atau parameter URL.
