@@ -2,6 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+const secretKey = 'th1s1ss3cr3t';
 
 //call checkRole function from middleware.js
 const { checkRole } = require('./middleware/middleware');
