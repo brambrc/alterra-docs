@@ -6,8 +6,12 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 
 describe('API Integration Tests', () => {
-  it('should return a list of books', async () => {
+it('should return a list of books', async () => {
     const response = await chai.request(app).get('/books'); // Replace with your actual endpoint
     expect(response).to.have.status(200);
+});
+it('shouldnt return a list of books', async () => {
+    const response = await chai.request(app).get('/books').query({status: 'error'}); // Replace with your actual endpoint
+    expect(response).to.have.status(500);
 });
 });

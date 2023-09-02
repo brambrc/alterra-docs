@@ -2,11 +2,17 @@ const BookModel = require('../models/bookModel');
 
 class BookController {
   getBooks(req, res) {
-    let books = BookModel.getAllBooks();
-    res.json({
-      message: 'Books retrieved!',
-      books: books
+    console.log(req.query.status)
+    if (req.query.status == 'error') {
+      return res.json({ message: 'Error occurred!' });
+    } else {
+        let books = BookModel.getAllBooks();
+      res.json({
+        message: 'Books retrieved!',
+        books: books
     });
+    }
+    
   }
 
   addNewBook(req, res) {

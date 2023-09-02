@@ -5,13 +5,22 @@ const BookController = require('../../controllers/bookController'); // Remove th
 describe('List of Books', () => {
   it('should return a response with list of books', () => {
     let result
-    BookController.getBooks({}, {
+    BookController.getBooks({query: {status: 'true'}}, {
       json: (data) => {
         result = data;
-        return data;
       }
     });
     assert.deepStrictEqual(result.message, "Books retrieved!");
+  });
+
+  it('shouldnt return a response with list of books', () => {
+    let result
+    BookController.getBooks({query: {status: 'error'}}, {
+      json: (data) => {
+        result = data;
+      }
+    });
+    assert.deepStrictEqual(result.message, "Error occurred!");
   });
   
 });
@@ -22,7 +31,6 @@ describe('Adding a book', () => {
       BookController.addNewBook({body: {title: "The Lord of the Rings", author: "J. R. R. Tolkien"}}, {
         json: (data) => {
           result = data;
-          return data;
         }
       });
     assert.deepStrictEqual(result.message, "Book added!");
@@ -35,7 +43,6 @@ describe('Updating a book', () => {
       BookController.updateExistingBook({params: {id: 1}, body: {title: "The Lord of the Rings", author: "J. R. R. Tolkien"}}, {
         json: (data) => {
           result = data;
-          return data;
         }
       });
     assert.deepStrictEqual(result.message, "Book updated!");
